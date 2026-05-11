@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,254 +18,409 @@
             --warning: #F59E0B;
         }
 
-        * { box-sizing: border-box; font-family: 'Pretendard', 'Malgun Gothic', sans-serif; }
-        body { background-color: var(--bg); color: var(--text); margin: 0; padding: 20px; display: flex; justify-content: center; }
-        .container { max-width: 800px; width: 100%; }
-        
-        h1 { text-align: center; color: var(--primary); font-size: 28px; margin-bottom: 5px; }
-        p.subtitle { text-align: center; color: var(--text-light); margin-bottom: 30px; font-size: 14px; }
+        * {
+            box-sizing: border-box;
+            font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
+        }
 
-        .card { background: var(--card-bg); border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .card h2 { margin-top: 0; font-size: 18px; border-bottom: 2px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary);
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 18px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
 
         /* 입력 탭 스타일 */
-        .tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
-        .tab-btn { padding: 8px 16px; border: none; background: transparent; cursor: pointer; border-radius: 6px; font-weight: bold; color: var(--text-light); }
-        .tab-btn.active { background: var(--primary); color: white; }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
 
-        .month-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; padding: 15px; background: #F9FAFB; border-radius: 8px; border: 1px solid var(--border); }
-        .month-label { font-weight: bold; width: 60px; }
-        
-        .input-group { display: flex; gap: 10px; align-items: center; flex: 1; justify-content: flex-end; }
-        input[type="number"] { width: 100px; padding: 8px; border: 1px solid var(--border); border-radius: 6px; text-align: right; }
-        
+        .tab-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .month-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #F9FAFB;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .month-label {
+            font-weight: bold;
+            width: 60px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        input[type="number"] {
+            width: 100px;
+            padding: 8px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            text-align: right;
+        }
+
         /* 일별 입력기 스타일 */
-        .daily-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin-top: 10px; display: none; }
-        .daily-grid input { width: 100%; font-size: 12px; padding: 5px; }
-        .daily-container { width: 100%; }
+        .daily-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+            display: none;
+        }
 
-        .calc-btn { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.2s; }
-        .calc-btn:hover { background: var(--primary-hover); }
+        .daily-grid input {
+            width: 100%;
+            font-size: 12px;
+            padding: 5px;
+        }
+
+        .daily-container {
+            width: 100%;
+        }
+
+        .calc-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: var(--primary-hover);
+        }
 
         /* 결과 영역 */
-        .result-box { text-align: center; padding: 20px; background: #EEF2FF; border-radius: 8px; margin-bottom: 20px; }
-        .result-box .huge-text { font-size: 24px; font-weight: bold; color: var(--primary); margin: 10px 0; }
-        .badge { background: var(--warning); color: white; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: bold; margin-left: 10px; display: inline-block; animation: pop 0.3s ease-in-out; }
+        .result-box {
+            text-align: center;
+            padding: 20px;
+            background: #EEF2FF;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
 
-        @keyframes pop { 0% { transform: scale(0.8); } 100% { transform: scale(1); } }
+        .result-box .huge-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        .badge {
+            background: var(--warning);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+            display: inline-block;
+            animation: pop 0.3s ease-in-out;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.8);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
 
         /* 예측 영역 */
-        .predict-box { background: #ECFDF5; border-left: 4px solid var(--success); padding: 15px; border-radius: 4px; font-size: 14px; line-height: 1.6; }
-        
-        .hidden { display: none !important; }
+        .predict-box {
+            background: #ECFDF5;
+            border-left: 4px solid var(--success);
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .hidden {
+            display: none !important;
+        }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>사내 보상휴가 계산기 ⏱️</h1>
-    <p class="subtitle">월 900분(15시간) 초과 야근 시간부터 분기별 합산 (최대단위 우선 환산)</p>
+    <div class="container">
+        <h1>사내 보상휴가 계산기 ⏱️</h1>
+        <p class="subtitle">월 900분(15시간) 초과 야근 시간부터 분기별 합산 (최대단위 우선 환산)</p>
 
-    <!-- 입력 섹션 -->
-    <div class="card">
-        <h2>1. 해당 분기의 야근 시간 입력 (순수 연장근로)</h2>
-        <div class="tabs">
-            <button class="tab-btn active" onclick="setMode('total')">월별 총 분(Minute) 입력</button>
-            <button class="tab-btn" onclick="setMode('hm')">월별 시간/분 입력</button>
-            <button class="tab-btn" onclick="setMode('daily')">일별 캘린더 입력</button>
+        <!-- 입력 섹션 -->
+        <div class="card">
+            <h2>1. 해당 분기의 야근 시간 입력 (순수 연장근로)</h2>
+            <div class="tabs">
+                <button class="tab-btn active" onclick="setMode('total')">월별 총 분(Minute) 입력</button>
+                <button class="tab-btn" onclick="setMode('hm')">월별 시간/분 입력</button>
+                <button class="tab-btn" onclick="setMode('daily')">일별 캘린더 입력</button>
+            </div>
+
+            <div id="input-container">
+                <!-- 자바스크립트로 월별 입력창이 생성됩니다 -->
+            </div>
+
+            <button class="calc-btn" onclick="calculateLeave()">보상휴가 정산하기</button>
         </div>
 
-        <div id="input-container">
-            <!-- 자바스크립트로 월별 입력창이 생성됩니다 -->
+        <!-- 결과 섹션 -->
+        <div class="card" id="result-section" style="display: none;">
+            <h2>2. 이번 분기 보상휴가 결과 🎉</h2>
+            <div class="result-box">
+                <p id="monthly-summary" style="margin-top:0; color: var(--text-light); font-size: 14px;"></p>
+                <p>이번 분기 누적 인정 시간: <strong id="total-recognized-time">0</strong>분</p>
+                <div class="huge-text" id="final-leave-text">일차 0개, 반차 0개, 반반차 0개</div>
+                <div id="rounded-badge" class="badge hidden">✨ 자투리 시간 반올림(+반반차) 적용됨!</div>
+            </div>
         </div>
 
-        <button class="calc-btn" onclick="calculateLeave()">보상휴가 정산하기</button>
+        <!-- 미래 시뮬레이션 섹션 -->
+        <div class="card" id="predict-section">
+            <h2>3. 앞으로 얼마나 더 모을 수 있을까? 🚀</h2>
+            <div class="predict-box">
+                <strong style="color: var(--success); font-size: 16px;">이번 분기 잔여 야근 시뮬레이터</strong><br>
+                오늘(<span id="today-date"></span>) 기준으로 이번 분기 종료일까지 약 <strong id="remain-weeks">0</strong>주 남았습니다.<br>
+                법정 최대 연장근로(주 12시간=720분)를 꽉 채워서 일할 경우,<br>
+                남은 기간 동안 <strong>최대 <span id="max-additional-leave" style="color:#047857;">일차 0개</span></strong>를 추가로 더
+                얻을 수 있습니다! 😭 (화이팅...)
+            </div>
+        </div>
     </div>
 
-    <!-- 결과 섹션 -->
-    <div class="card" id="result-section" style="display: none;">
-        <h2>2. 이번 분기 보상휴가 결과 🎉</h2>
-        <div class="result-box">
-            <p id="monthly-summary" style="margin-top:0; color: var(--text-light); font-size: 14px;"></p>
-            <p>이번 분기 누적 인정 시간: <strong id="total-recognized-time">0</strong>분</p>
-            <div class="huge-text" id="final-leave-text">일차 0개, 반차 0개, 반반차 0개</div>
-            <div id="rounded-badge" class="badge hidden">✨ 자투리 시간 반올림(+반반차) 적용됨!</div>
-        </div>
-    </div>
+    <script>
+        let currentMode = 'total';
 
-    <!-- 미래 시뮬레이션 섹션 -->
-    <div class="card" id="predict-section">
-        <h2>3. 앞으로 얼마나 더 모을 수 있을까? 🚀</h2>
-        <div class="predict-box">
-            <strong style="color: var(--success); font-size: 16px;">이번 분기 잔여 야근 시뮬레이터</strong><br>
-            오늘(<span id="today-date"></span>) 기준으로 이번 분기 종료일까지 약 <strong id="remain-weeks">0</strong>주 남았습니다.<br>
-            법정 최대 연장근로(주 12시간=720분)를 꽉 채워서 일할 경우,<br>
-            남은 기간 동안 <strong>최대 <span id="max-additional-leave" style="color:#047857;">일차 0개</span></strong>를 추가로 더 얻을 수 있습니다! 😭 (화이팅...)
-        </div>
-    </div>
-</div>
+        // UI 초기화: 3개의 달(분기) 입력창 생성
+        function renderInputs() {
+            const container = document.getElementById('input-container');
+            container.innerHTML = '';
 
-<script>
-    let currentMode = 'total';
-    
-    // UI 초기화: 3개의 달(분기) 입력창 생성
-    function renderInputs() {
-        const container = document.getElementById('input-container');
-        container.innerHTML = '';
+            for (let m = 1; m <= 3; m++) {
+                const row = document.createElement('div');
+                row.className = 'month-row';
 
-        for (let m = 1; m <= 3; m++) {
-            const row = document.createElement('div');
-            row.className = 'month-row';
-            
-            let inputHTML = `<div class="month-label">${m}월</div>`;
+                let inputHTML = `<div class="month-label">${m}월</div>`;
 
-            if (currentMode === 'total') {
-                inputHTML += `<div class="input-group">
+                if (currentMode === 'total') {
+                    inputHTML += `<div class="input-group">
                     <input type="number" id="total-${m}" placeholder="총 분(ex. 1020)" min="0"> 분
                 </div>`;
-            } else if (currentMode === 'hm') {
-                inputHTML += `<div class="input-group">
+                } else if (currentMode === 'hm') {
+                    inputHTML += `<div class="input-group">
                     <input type="number" id="hours-${m}" placeholder="시간" min="0"> 시간
                     <input type="number" id="mins-${m}" placeholder="분" min="0" max="59"> 분
                 </div>`;
-            } else if (currentMode === 'daily') {
-                inputHTML = `
+                } else if (currentMode === 'daily') {
+                    inputHTML = `
                 <div class="daily-container">
                     <div style="font-weight:bold; margin-bottom:5px;">${m}월 일별 야근시간(분) 입력</div>
                     <div class="daily-grid" style="display:grid;">
-                        ${Array.from({length: 31}, (_, i) => `<input type="number" class="day-input-${m}" placeholder="${i+1}일" min="0">`).join('')}
+                        ${Array.from({ length: 31 }, (_, i) => `<input type="number" class="day-input-${m}" placeholder="${i + 1}일" min="0">`).join('')}
                     </div>
                 </div>`;
+                }
+
+                row.innerHTML = inputHTML;
+                container.appendChild(row);
             }
-
-            row.innerHTML = inputHTML;
-            container.appendChild(row);
         }
-    }
 
-    // 입력 모드 변경 (탭)
-    function setMode(mode) {
-        currentMode = mode;
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-        renderInputs();
-    }
+        // 입력 모드 변경 (탭)
+        function setMode(mode) {
+            currentMode = mode;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderInputs();
+        }
 
-    // 데이터 가져오기 및 휴가 계산 메인 함수
-    function calculateLeave() {
-        let totalRecognized = 0;
-        let summaryText = "";
+        // 데이터 가져오기 및 휴가 계산 메인 함수
+        function calculateLeave() {
+            let totalRecognized = 0;
+            let summaryText = "";
 
-        for (let m = 1; m <= 3; m++) {
-            let monthTotal = 0;
+            for (let m = 1; m <= 3; m++) {
+                let monthTotal = 0;
 
-            if (currentMode === 'total') {
-                monthTotal = parseInt(document.getElementById(`total-${m}`).value) || 0;
-            } else if (currentMode === 'hm') {
-                let h = parseInt(document.getElementById(`hours-${m}`).value) || 0;
-                let min = parseInt(document.getElementById(`mins-${m}`).value) || 0;
-                monthTotal = (h * 60) + min;
-            } else if (currentMode === 'daily') {
-                let inputs = document.querySelectorAll(`.day-input-${m}`);
-                let weeklySum = 0;
-                inputs.forEach((input, index) => {
-                    let val = parseInt(input.value) || 0;
-                    monthTotal += val;
-                    weeklySum += val;
-                    // 매 7일마다 주 12시간(720분) 체크
-                    if ((index + 1) % 7 === 0) {
-                        if (weeklySum > 720) {
-                            alert(`${m}월의 특정 주간에 법정 연장근로(12시간=720분)를 초과한 내역이 있습니다. 확인해주세요!`);
+                if (currentMode === 'total') {
+                    monthTotal = parseInt(document.getElementById(`total-${m}`).value) || 0;
+                } else if (currentMode === 'hm') {
+                    let h = parseInt(document.getElementById(`hours-${m}`).value) || 0;
+                    let min = parseInt(document.getElementById(`mins-${m}`).value) || 0;
+                    monthTotal = (h * 60) + min;
+                } else if (currentMode === 'daily') {
+                    let inputs = document.querySelectorAll(`.day-input-${m}`);
+                    let weeklySum = 0;
+                    inputs.forEach((input, index) => {
+                        let val = parseInt(input.value) || 0;
+                        monthTotal += val;
+                        weeklySum += val;
+                        // 매 7일마다 주 12시간(720분) 체크
+                        if ((index + 1) % 7 === 0) {
+                            if (weeklySum > 720) {
+                                alert(`${m}월의 특정 주간에 법정 연장근로(12시간=720분)를 초과한 내역이 있습니다. 확인해주세요!`);
+                            }
+                            weeklySum = 0;
                         }
-                        weeklySum = 0;
-                    }
-                });
+                    });
+                }
+
+                // 900분 이상부터 인정
+                let recognized = monthTotal > 900 ? monthTotal - 900 : 0;
+                totalRecognized += recognized;
+                summaryText += `[${m}월: 총 ${monthTotal}분 중 <strong>${recognized}분 인정</strong>] `;
             }
 
-            // 900분 이상부터 인정
-            let recognized = monthTotal > 900 ? monthTotal - 900 : 0;
-            totalRecognized += recognized;
-            summaryText += `[${m}월: 총 ${monthTotal}분 중 <strong>${recognized}분 인정</strong>] `;
+            // 결과 계산 및 화면 표시
+            displayResults(totalRecognized, summaryText);
         }
 
-        // 결과 계산 및 화면 표시
-        displayResults(totalRecognized, summaryText);
-    }
+        // 휴가 단위 변환 및 화면 표시
+        function displayResults(totalMins, summaryText) {
+            let full = Math.floor(totalMins / 480);
+            let rem = totalMins % 480;
 
-    // 휴가 단위 변환 및 화면 표시
-    function displayResults(totalMins, summaryText) {
-        let full = Math.floor(totalMins / 480);
-        let rem = totalMins % 480;
-        
-        let half = Math.floor(rem / 240);
-        rem %= 240;
-        
-        let quarter = Math.floor(rem / 120);
-        let leftover = rem % 120;
+            let half = Math.floor(rem / 240);
+            rem %= 240;
 
-        let roundedUp = false;
-        
-        // **자투리 반올림 로직**: 60분 이상이면 반반차(120분) 1개로 올림
-        if (leftover >= 60) {
-            quarter += 1;
-            roundedUp = true;
+            let quarter = Math.floor(rem / 120);
+            let leftover = rem % 120;
+
+            let roundedUp = false;
+
+            // **자투리 반올림 로직**: 60분 이상이면 반반차(120분) 1개로 올림
+            if (leftover >= 60) {
+                quarter += 1;
+                roundedUp = true;
+            }
+
+            // **단위 최적화 (가장 큰 단위 우선)**
+            if (quarter >= 2) { half += Math.floor(quarter / 2); quarter %= 2; }
+            if (half >= 2) { full += Math.floor(half / 2); half %= 2; }
+
+            // UI 업데이트
+            document.getElementById('result-section').style.display = 'block';
+            document.getElementById('monthly-summary').innerHTML = summaryText;
+            document.getElementById('total-recognized-time').innerText = totalMins;
+
+            document.getElementById('final-leave-text').innerHTML =
+                `<strong>일차 ${full}개</strong>, 반차 ${half}개, 반반차 ${quarter}개`;
+
+            const badge = document.getElementById('rounded-badge');
+            if (roundedUp) {
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+
+            // 부드럽게 스크롤
+            document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // **단위 최적화 (가장 큰 단위 우선)**
-        if (quarter >= 2) { half += Math.floor(quarter / 2); quarter %= 2; }
-        if (half >= 2) { full += Math.floor(half / 2); half %= 2; }
+        // 미래 휴가 시뮬레이션 계산 (초기 로드 시 실행)
+        function runSimulation() {
+            const today = new Date();
+            document.getElementById('today-date').innerText = `${today.getFullYear()}년 ${today.getMonth() + 1}월 ${today.getDate()}일`;
 
-        // UI 업데이트
-        document.getElementById('result-section').style.display = 'block';
-        document.getElementById('monthly-summary').innerHTML = summaryText;
-        document.getElementById('total-recognized-time').innerText = totalMins;
-        
-        document.getElementById('final-leave-text').innerHTML = 
-            `<strong>일차 ${full}개</strong>, 반차 ${half}개, 반반차 ${quarter}개`;
+            // 현재 분기의 마지막 날 계산
+            const currentQuarter = Math.floor((today.getMonth() + 3) / 3);
+            const endOfQuarter = new Date(today.getFullYear(), currentQuarter * 3, 0); // 분기 마지막 달의 마지막 날
 
-        const badge = document.getElementById('rounded-badge');
-        if (roundedUp) {
-            badge.classList.remove('hidden');
-        } else {
-            badge.classList.add('hidden');
+            // 남은 일수 계산
+            const diffTime = Math.abs(endOfQuarter - today);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const remainWeeks = (diffDays / 7).toFixed(1);
+
+            document.getElementById('remain-weeks').innerText = remainWeeks;
+
+            // 잔여 주차 * 주 12시간(720분) = 얻을 수 있는 최대 분
+            const maxAdditionalMins = Math.floor(remainWeeks) * 720;
+
+            // 휴가로 환산 (단순 일차 단위로만 보여줌)
+            const additionalFullDays = Math.floor(maxAdditionalMins / 480);
+            const additionalHalfDays = Math.floor((maxAdditionalMins % 480) / 240);
+
+            let text = `일차 ${additionalFullDays}개`;
+            if (additionalHalfDays > 0) text += `, 반차 ${additionalHalfDays}개`;
+
+            document.getElementById('max-additional-leave').innerText = text;
         }
-        
-        // 부드럽게 스크롤
-        document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
-    }
 
-    // 미래 휴가 시뮬레이션 계산 (초기 로드 시 실행)
-    function runSimulation() {
-        const today = new Date();
-        document.getElementById('today-date').innerText = `${today.getFullYear()}년 ${today.getMonth()+1}월 ${today.getDate()}일`;
-
-        // 현재 분기의 마지막 날 계산
-        const currentQuarter = Math.floor((today.getMonth() + 3) / 3);
-        const endOfQuarter = new Date(today.getFullYear(), currentQuarter * 3, 0); // 분기 마지막 달의 마지막 날
-        
-        // 남은 일수 계산
-        const diffTime = Math.abs(endOfQuarter - today);
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-        const remainWeeks = (diffDays / 7).toFixed(1);
-        
-        document.getElementById('remain-weeks').innerText = remainWeeks;
-
-        // 잔여 주차 * 주 12시간(720분) = 얻을 수 있는 최대 분
-        const maxAdditionalMins = Math.floor(remainWeeks) * 720;
-        
-        // 휴가로 환산 (단순 일차 단위로만 보여줌)
-        const additionalFullDays = Math.floor(maxAdditionalMins / 480);
-        const additionalHalfDays = Math.floor((maxAdditionalMins % 480) / 240);
-        
-        let text = `일차 ${additionalFullDays}개`;
-        if(additionalHalfDays > 0) text += `, 반차 ${additionalHalfDays}개`;
-
-        document.getElementById('max-additional-leave').innerText = text;
-    }
-
-    // 초기화 실행
-    renderInputs();
-    runSimulation();
-</script>
+        // 초기화 실행
+        renderInputs();
+        runSimulation();
+    </script>
 </body>
+
 </html>
