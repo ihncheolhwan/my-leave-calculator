@@ -29,6 +29,13 @@
   },
   "customNotes": [],
   "directoryMap": {},
-  "hotPaths": [],
+  "hotPaths": [
+    {
+      "path": "my-leave-calc.html",
+      "accessCount": 2,
+      "lastAccessed": 1778464448664,
+      "type": "file"
+    }
+  ],
   "userDirectives": []
 }

@@ -30,6 +30,7 @@
             padding: 20px;
             display: flex;
             justify-content: center;
+            -webkit-text-size-adjust: 100%;
         }
 
         .container {
@@ -57,6 +58,86 @@
             padding: 24px;
             margin-bottom: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            p.subtitle {
+                font-size: 12px;
+                margin-bottom: 20px;
+            }
+
+            .card {
+                padding: 16px;
+                border-radius: 10px;
+            }
+
+            .card h2 {
+                font-size: 16px;
+            }
+
+            .tabs {
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .tab-btn {
+                flex: 1 1 calc(50% - 6px);
+                padding: 8px 10px;
+                font-size: 13px;
+            }
+
+            .month-row {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                padding: 12px;
+            }
+
+            .month-label {
+                width: auto;
+            }
+
+            .input-group {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+
+            input[type="number"] {
+                flex: 1;
+                width: auto;
+                min-width: 0;
+                font-size: 16px;
+            }
+
+            .daily-grid {
+                grid-template-columns: repeat(5, 1fr) !important;
+            }
+
+            .calc-btn {
+                font-size: 16px;
+                padding: 14px;
+            }
+
+            .result-box .huge-text {
+                font-size: 20px;
+            }
+
+            .badge {
+                display: block;
+                margin: 8px 0 0 0;
+            }
+
+            .predict-box {
+                font-size: 13px;
+            }
         }
 
         .card h2 {
