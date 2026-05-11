@@ -343,12 +343,22 @@
     <script>
         let currentMode = 'total';
 
-        // UI 초기화: 3개의 달(분기) 입력창 생성
+        // 현재 분기의 3개월 계산 (예: 5월이면 [4,5,6])
+        function getQuarterMonths() {
+            const month = new Date().getMonth() + 1;
+            const quarter = Math.ceil(month / 3);
+            const start = (quarter - 1) * 3 + 1;
+            return [start, start + 1, start + 2];
+        }
+
+        const QUARTER_MONTHS = getQuarterMonths();
+
+        // UI 초기화: 현재 분기의 3개월 입력창 생성
         function renderInputs() {
             const container = document.getElementById('input-container');
             container.innerHTML = '';
 
-            for (let m = 1; m <= 3; m++) {
+            QUARTER_MONTHS.forEach(m => {
                 const row = document.createElement('div');
                 row.className = 'month-row';
 
@@ -375,7 +385,7 @@
 
                 row.innerHTML = inputHTML;
                 container.appendChild(row);
-            }
+            });
         }
 
         // 입력 모드 변경 (탭)
@@ -391,7 +401,7 @@
             let totalRecognized = 0;
             let summaryText = "";
 
-            for (let m = 1; m <= 3; m++) {
+            for (const m of QUARTER_MONTHS) {
                 let monthTotal = 0;
 
                 if (currentMode === 'total') {
